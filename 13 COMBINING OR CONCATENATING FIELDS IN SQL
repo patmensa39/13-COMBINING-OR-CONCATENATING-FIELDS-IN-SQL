@@ -1,0 +1,40 @@
+/*13 COMBINING OR CONCATENATING FIELDS IN SQL 
+Created by Patrick Mensah 
+Date Created: 04/11/2023
+Description:  This query shows how to combine or concatenate fields in SQL 
+*/
+
+--Assuming we want to create a mailing list to all the customers in USA
+SELECT 
+    FirstName AS 'First Name',
+    LastName AS 'Last Name',
+    Address AS 'Customer Address',
+    City,
+    State,
+    Postalcode,
+    Country
+FROM
+    Customer
+WHERE
+    Country = 'USA'
+ORDER BY 
+    FirstName
+
+--Assuming we want to combine all these fields into one field ei Concatenate all the fields into one. 
+SELECT 
+    FirstName AS 'First Name',
+    LastName AS 'Last Name',
+    Address AS 'Customer Address',
+    City,
+    State,
+    Postalcode,
+    Country,
+    FirstName || ' '  || LastName || Address || ' ,'  || City || ' '  || State || ' '  || PostalCode || ' '  || Country AS 'Mailing Address' --This line does the concatenation 
+FROM
+    Customer
+WHERE
+    Country = 'USA'
+ORDER BY 
+    FirstName
+
+--This code combine all the fields into one fields
